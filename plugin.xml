@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android"
+        id="cordova-locktask" version="0.0.0">
+
+    <name>Cordova LockTask Mode</name>
+    <author>Michael McDuffee</author>
+    <description>
+        A Cordova plugin to create an application that uses Android's LockTask mode
+        for COSU (corporate-owned, single-use) devices. Use of this plugin allows
+        the developer to block user access to hardware keys and other system functionality.
+
+        To enable "kiosk mode" in this fashion, you must reset the device to factory
+        defaults and follow the instructions in Google's developer codelab to prepare the device.
+        See https://codelabs.developers.google.com/codelabs/cosu/index.html?index=..%2F..%2Findex#7 for details.
+
+        This plugin is only intended for use with Android applications made with Cordova.
+    </description>
+    <keywords>cordova, locktask, kiosk, kiosk mode</keywords>
+
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+
+    <js-module src="locktask.js" name="lockTaskPlugin">
+        <clobbers target="window.LockTaskPlugin" />
+    </js-module>
+
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="LockTaskPlugin">
+                <param name="android-package" value="mrmcduff.cordova.plugin.locktask" />
+            </feature>
+        </config-file>
+
+        <config-file parent="/*" target="AndroidManifest.xml"></config-file>
+
+        <edit-config file="AndroidManifest.xml" target="/manifest/application/activity[@android:label='@string/activity_name']" mode="merge">
+            <activity android:name="mrmcduff.cordova.plugin.locktask.LockTaskActivity" android:keepScreenOn="true" android:theme="@android:style/Theme.DeviceDefault.NoActionBar"></activity>
+        </edit-config>
+        <config-file target="AndroidManifest.xml" parent="/manifest/application/activity[@android:label='@string/activity_name']">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <!-- Handler of app icon (required to be launcher) -->
+                <category android:name="android.intent.category.HOME" />
+                <!-- Handler of Home button -->
+            </intent-filter>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <!-- autorun after the app APK is updated -->
+            <receiver android:name="mrmcduff.cordova.plugin.locktask.UpdateReceiver">
+                <intent-filter>
+                    <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+                    <action android:name="android.intent.action.BOOT_COMPLETED" />
+                </intent-filter>
+            </receiver>
+            <receiver android:name="mrmcduff.cordova.plugin.locktask.DeviceAdminReceiver" android:label="@string/app_name"  android:permission="android.permission.BIND_DEVICE_ADMIN">
+                <meta-data android:name="android.app.device_admin" android:resource="@xml/my_admin" />
+                <intent-filter>
+                    <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+                </intent-filter>
+            </receiver>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.REORDER_TASKS"/>
+            <uses-permission android:name="com.samsung.accessory.permission.ACCESSORY_FRAMEWORK" />
+            <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"></uses-permission>
+        </config-file>
+
+        <source-file src="src/android/LockTaskActivity.java" target-dir="src/mrmcduff/cordova/plugin/locktask" />
+        <source-file src="src/android/LockTask.java" target-dir="src/mrmcduff/cordova/plugin/locktask" />
+        <source-file src="src/android/UpdateReceiver.java" target-dir="src/mrmcduff/cordova/plugin/locktask" />
+        <source-file src="src/android/DeviceAdminReceiver.java" target-dir="src/mrmcduff/cordova/plugin/locktask" />
+        <source-file src="src/android/xml/device_admin_receiver.xml" target-dir="res/xml/" />
+    </platform>
+
+
+</plugin>
