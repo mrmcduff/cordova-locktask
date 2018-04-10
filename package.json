@@ -1,0 +1,28 @@
+{
+  "name": "cordova-locktask",
+  "version": "0.0.1",
+  "description": "Set up single-use (COSU) devices for android",
+  "cordova": {
+    "id": "cordova-locktask",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrmcduff/cordova-locktask.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "kiosk",
+    "cosu",
+    "locktask"
+  ],
+  "author": "Michael McDuffee",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mrmcduff/cordova-locktask/issues"
+  },
+  "homepage": "https://github.com/mrmcduff/cordova-locktask#readme"
+}
