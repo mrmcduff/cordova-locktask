@@ -69,6 +69,7 @@
 
         <source-file src="src/android/LockTaskActivity.java" target-dir="src/mrmcduff/cordova/plugin/locktask" />
         <source-file src="src/android/LockTask.java" target-dir="src/mrmcduff/cordova/plugin/locktask" />
+        <source-file src="src/android/LockTaskHelper.java" target-dir="src/mrmcduff/cordova/plugin/locktask" />
         <source-file src="src/android/UpdateReceiver.java" target-dir="src/mrmcduff/cordova/plugin/locktask" />
         <source-file src="src/android/DeviceAdminReceiver.java" target-dir="src/mrmcduff/cordova/plugin/locktask" />
         <source-file src="src/android/xml/device_admin_receiver.xml" target-dir="res/xml/" />
