@@ -1,5 +1,6 @@
 package mrmcduff.cordova.plugin.locktask;
 
+import android.app.Activity;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
@@ -36,7 +37,7 @@ public class LockTask extends CordovaPlugin {
             setLocked(locked);
             return true;
         } else if (action.equals("isLocked")) {
-            callbackContext.success(String.valueOf(isKioskEnabled));
+            callbackContext.success(String.valueOf(isLockTaskEnabled));
             return true;
         }
         return false;
