@@ -124,7 +124,6 @@ public class LockTask extends CordovaPlugin {
             dataResult.setKeepCallback(true);
             callbackContext.sendPluginResult(dataResult);
         }
-        callbackContext = null;
     }
 
     private static boolean setDefaultCosuPolicies(Activity activity, boolean active) {
