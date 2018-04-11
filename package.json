@@ -1,7 +1,7 @@
 {
   "name": "cordova-locktask",
   "version": "0.0.1",
-  "description": "Set up single-use (COSU) devices for android",
+  "description": "\n        A Cordova plugin to create an application that uses Android's LockTask mode\n        for COSU (corporate-owned, single-use) devices. Use of this plugin allows\n        the developer to block user access to hardware keys and other system functionality.\n\n        To enable \"kiosk mode\" in this fashion, you must reset the device to factory\n        defaults and follow the instructions in Google's developer codelab to prepare the device.\n        See https://codelabs.developers.google.com/codelabs/cosu/index.html?index=..%2F..%2Findex#7 for details.\n\n        This plugin is only intended for use with Android applications made with Cordova.\n    ",
   "cordova": {
     "id": "cordova-locktask",
     "platforms": [
@@ -13,11 +13,18 @@
     "url": "git+https://github.com/mrmcduff/cordova-locktask.git"
   },
   "keywords": [
-    "ecosystem:cordova",
-    "cordova-android",
+    "cordova",
+    "locktask",
     "kiosk",
-    "cosu",
-    "locktask"
+    "kiosk mode",
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
   ],
   "author": "Michael McDuffee",
   "license": "MIT",
