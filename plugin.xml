@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android"
-        id="cordova-locktask" version="0.0.1">
+        id="cordova-plugin-locktask" version="0.0.2">
 
     <name>Cordova LockTask Mode</name>
     <author>Michael McDuffee</author>
@@ -55,7 +55,7 @@
                 </intent-filter>
             </receiver>
             <receiver android:name="mrmcduff.cordova.plugin.locktask.DeviceAdminReceiver" android:label="@string/app_name"  android:permission="android.permission.BIND_DEVICE_ADMIN">
-                <meta-data android:name="android.app.device_admin" android:resource="@xml/my_admin" />
+                <meta-data android:name="android.app.device_admin" android:resource="@xml/device_admin_receiver" />
                 <intent-filter>
                     <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
                 </intent-filter>
