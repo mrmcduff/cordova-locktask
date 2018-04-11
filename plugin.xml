@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android"
-        id="cordova-plugin-locktask-cosu" version="0.0.5">
+        id="cordova-plugin-locktask-cosu" version="0.0.6">
 
     <name>Cordova LockTask Mode</name>
     <author>Michael McDuffee</author>
@@ -69,7 +69,6 @@
 
         <source-file src="src/android/LockTaskActivity.java" target-dir="src/mrmcduff/cordova/plugin/locktask" />
         <source-file src="src/android/LockTask.java" target-dir="src/mrmcduff/cordova/plugin/locktask" />
-        <source-file src="src/android/LockTaskHelper.java" target-dir="src/mrmcduff/cordova/plugin/locktask" />
         <source-file src="src/android/UpdateReceiver.java" target-dir="src/mrmcduff/cordova/plugin/locktask" />
         <source-file src="src/android/DeviceAdminReceiver.java" target-dir="src/mrmcduff/cordova/plugin/locktask" />
         <source-file src="src/android/xml/device_admin_receiver.xml" target-dir="res/xml/" />
