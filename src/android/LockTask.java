@@ -98,10 +98,10 @@ public class LockTask extends CordovaPlugin {
         String message = "Set locktask mode succeeded.";
 
         if (locked && !isLockTaskEnabled) {
-            success = setDefaultCosuProperties(activity, true);
+            success = setDefaultCosuPolicies(activity, true);
             isLockTaskEnabled = success;
         } else if (!locked && isLockTaskEnabled) {
-            success = setDefaultCosuProperties(activity, false);
+            success = setDefaultCosuPolicies(activity, false);
             isLockTaskEnabled = !success;
         }
 
