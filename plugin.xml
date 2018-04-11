@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android"
-        id="cordova-plugin-locktask-cosu" version="0.0.9">
+        id="cordova-plugin-locktask-cosu" version="0.0.10">
 
     <name>Cordova LockTask Mode</name>
     <author>Michael McDuffee</author>
@@ -28,7 +28,7 @@
     <platform name="android">
         <config-file parent="/*" target="res/xml/config.xml">
             <feature name="LockTaskPlugin">
-                <param name="android-package" value="mrmcduff.cordova.plugin.locktask" />
+                <param name="android-package" value="mrmcduff.cordova.plugin.locktask.LockTask" />
             </feature>
         </config-file>
 
@@ -74,5 +74,5 @@
         <source-file src="src/android/xml/device_admin_receiver.xml" target-dir="res/xml/" />
     </platform>
 
-
 </plugin>
+
